@@ -1,5 +1,4 @@
-A Spring Boot microservices system using Eureka, API Gateway, Auth Service, and Task Service.
-Supports JWT authentication and RBAC (USER & ADMIN) for secure task management.
-Services: Eureka (8761), Gateway (8080), Auth (8081), Task (8082).
-All requests go through the gateway, with service discovery via Eureka.
+A Spring Boot–based microservices task management system built using Eureka, API Gateway, Auth Service, and Task Service. 
+Implements JWT-based authentication, role-based access control (USER & ADMIN), and centralized exception handling for secure and robust APIs. 
+All requests are routed through the API Gateway with service discovery handled by Eureka.
 Built with Spring Cloud, JPA, MySQL, and JWT.
