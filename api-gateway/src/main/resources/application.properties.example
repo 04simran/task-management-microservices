@@ -1,0 +1,23 @@
+server.port=8080
+spring.application.name=api-gateway
+
+
+spring.main.web-application-type=reactive
+
+eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+spring.cloud.discovery.enabled=true
+
+# Auth service routes
+spring.cloud.gateway.routes[0].id=auth-service
+spring.cloud.gateway.routes[0].uri=lb://AUTH-SERVICE
+spring.cloud.gateway.routes[0].predicates[0]=Path=/auth/**
+
+# Task service routes
+spring.cloud.gateway.routes[1].id=task-service
+spring.cloud.gateway.routes[1].uri=lb://TASK-SERVICE
+spring.cloud.gateway.routes[1].predicates[0]=Path=/tasks/**
+spring.cloud.gateway.routes[1].filters[0]=AuthenticationFilter
+
+jwt.secret=JWT_SECRET
+
+logging.level.com.example.gateway=DEBUG
